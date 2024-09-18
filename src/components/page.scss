@@ -1,7 +1,18 @@
 wc-page {
-  &>header {
+  & > header {
     box-shadow: 0 !important;
     background: rgba(0, 0, 0, 0.1) !important;
     padding: 10px;
+
+    .text {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+
+      &.sub-text {
+        font-size: 10px !important;
+      }
+    }
   }
 }
