@@ -1,6 +1,5 @@
 <div align="center">
   <h1>Better UI<h1>
-  <hr/>
   <h4>Make Acode look better with the Better UI plugin. This tool lets you change how Acode looks and works.</h4>
 </div>
 
