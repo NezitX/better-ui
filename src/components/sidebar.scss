@@ -1,4 +1,5 @@
 #sidebar {
+  display: flex;
   width: 85vw;
 
   & + .mask {
@@ -10,12 +11,86 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 5px;
-    gap: 5px;
+    width: 60px;
+    padding: 10px;
+    gap: 10px;
 
     .icon {
-      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       border-radius: 10px;
+    }
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    margin: 0 !important;
+
+    &.search-in-files {
+      width: 100% !important;
+
+      .header {
+        .options {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 5px;
+          gap: 5px;
+          margin: 0 !important;
+
+          .input-checkbox {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            width: 100%;
+            height: 1.5rem;
+            font-size: 1rem;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+          }
+        }
+
+        [is='details'] {
+          padding-top: 10px !important;
+          border-top: 1.5px solid rgba(0, 0, 0, 0.15);
+
+          input {
+            margin-left: 10px !important;
+          }
+
+          textarea {
+            margin-left: 5px !important;
+          }
+
+          .marker,
+          .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 30px;
+            width: 30px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+          }
+
+          &[open] {
+            > [is='summary'] {
+              .marker {
+                background: var(--popup-active-color);
+              }
+            }
+          }
+        }
+      }
+
+      .editor-container {
+        display: flex;
+        align-items: center;
+        margin: 0 !important;
+        margin-left: 15px !important;
+      }
     }
   }
 
@@ -42,62 +117,6 @@
       width: 90%;
       justify-content: space-between;
       padding: 0 5px;
-    }
-  }
-}
-
-.search-in-files {
-  .header {
-    .options {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 5px;
-      gap: 5px;
-      margin: 0 !important;
-
-      .input-checkbox {
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        width: 100%;
-        height: 1.5rem;
-        font-size: 1rem;
-        background: rgba(0, 0, 0, 0.1);
-        border-radius: 5px;
-      }
-    }
-
-    [is='details'] {
-      padding-top: 10px !important;
-      border-top: 1.5px solid rgba(0, 0, 0, 0.15);
-
-      input {
-        margin-left: 10px !important;
-      }
-
-      textarea {
-        margin-left: 5px !important;
-      }
-
-      .marker,
-      .icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 30px;
-        width: 30px;
-        background: rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
-      }
-
-      &[open] {
-        > [is='summary'] {
-          .marker {
-            background: var(--popup-active-color);
-          }
-        }
-      }
     }
   }
 }
