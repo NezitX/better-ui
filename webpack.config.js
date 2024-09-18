@@ -1,4 +1,4 @@
-const { exec } = require('child_process');
+const {exec} = require('child_process');
 const path = require('path');
 
 module.exports = (env, options) => {
@@ -14,6 +14,13 @@ module.exports = (env, options) => {
             presets: ['@babel/preset-env'],
           },
         },
+      ],
+    },
+    {
+      test: /\.scss$/,
+      use: [
+        'css-loader', // Converts CSS into CommonJS
+        'sass-loader', // Compiles Sass to CSS
       ],
     },
   ];
@@ -35,7 +42,6 @@ module.exports = (env, options) => {
       {
         apply: (compiler) => {
           compiler.hooks.afterDone.tap('pack-zip', () => {
-            // run pack-zip.js
             exec('node .devServer/pack-zip.js', (err, stdout, stderr) => {
               if (err) {
                 console.error(err);

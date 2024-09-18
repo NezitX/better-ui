@@ -1,7 +1,7 @@
 {
-  "name": "acode-plugin-template",
+  "name": "better-ui",
   "version": "1.0.0",
-  "description": "Latest Plugin Template For Acode",
+  "description": "A Plugin for Acode editor",
   "main": "dist/main.js",
   "scripts": {
     "start-dev": "node .devServer/start-dev",
@@ -10,26 +10,32 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bajrangCoders/acode-plugin-template.git"
+    "url": "git+https://github.com/NezitX/better-ui.git"
   },
-  "author": "Raunak Raj",
+  "author": "NezitX",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bajrangCoders/acode-plugin-template/issues"
+    "url": "https://github.com/NezitX/better-ui/issues"
   },
-  "homepage": "https://github.com/bajrangCoders/acode-plugin-template#readme",
+  "homepage": "https://github.com/NezitX/better-ui#readme",
   "dependencies": {
     "@babel/cli": "^7.19.3",
     "@babel/core": "^7.20.5",
     "@babel/plugin-transform-runtime": "^7.19.6",
     "@babel/preset-env": "^7.20.2",
-    "babel-loader": "^9.1.0",
     "@types/ace": "^0.0.50",
+    "babel-loader": "^9.1.0",
+    "html-tag-js": "^1.1.22",
     "ip": "^1.1.8",
     "jszip": "^3.10.1",
     "live-server": "^1.2.2",
-    "html-tag-js": "^1.1.22",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1"
+  },
+  "devDependencies": {
+    "css-loader": "^7.1.2",
+    "sass": "^1.77.8",
+    "sass-loader": "^16.0.0",
+    "style-loader": "^4.0.0"
   }
 }

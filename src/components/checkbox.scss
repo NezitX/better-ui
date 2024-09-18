@@ -1,0 +1,27 @@
+.input-checkbox {
+  .box {
+    opacity: 1;
+    border: 0 !important;
+    background-color: rgba(0, 0, 0, 0.15);
+
+    &::after {
+      display: flex !important;
+      height: 100% !important;
+      width: 100% !important;
+      border-radius: 4px !important;
+    }
+  }
+
+  input:checked {
+    & + .box::after {
+      background-color: #3399ff;
+      background-color: var(--button-background-color);
+    }
+  }
+
+  input:not(:checked) {
+    & + .box::after {
+      background-color: rgba(0, 0, 0, 0.15);
+    }
+  }
+}

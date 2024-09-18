@@ -1,0 +1,13 @@
+.context-menu {
+  & + .mask {
+    background: black;
+    opacity: 0.25;
+  }
+
+  li {
+    &:hover,
+    &:active {
+      background-color: rgba(0, 0, 0, 0.1) !important;
+    }
+  }
+}

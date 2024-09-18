@@ -1,0 +1,16 @@
+.list {
+  .list-item {
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.1);
+    margin: 5px;
+
+    border: 0 !important;
+    border-radius: 15px;
+    
+    &:hover,
+    &:active {
+      background-color: rgba(0,0,0,0.2) !important;
+    }
+  }
+}

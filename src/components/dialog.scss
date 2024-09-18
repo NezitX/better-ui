@@ -1,0 +1,54 @@
+.prompt {
+  border-radius: 20px !important;
+  font-size: 12px !important;
+  padding: 5px !important;
+
+  .button-container {
+    margin-top: 5px !important;
+  }
+
+  .message {
+    padding: 10px !important;
+    min-height: 0px !important;
+    margin-bottom: 5px !important;
+  }
+
+  .input {
+    height: 2.5rem !important;
+    padding: 0 5px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.1) !important;
+
+    &::placeholder {
+      opacity: 0.1;
+    }
+
+    &:focus {
+      border-color: rgb(51, 153, 255);
+      border-color: var(--active-color);
+    }
+  }
+
+  textarea {
+    width: 100%;
+    box-sizing: border-box !important;
+    padding: 5px !important;
+    font-size: 12px !important;
+  }
+  
+  .tile {
+    background: rgba(0,0,0,0.1) !important;
+    border-radius: 15px;
+    border: 0;
+    
+    &:hover,
+    &:active {
+      background-color: rgba(0,0,0,0.2) !important;
+    }
+    
+    .lead:empty+.text {
+      margin-left: 10px;
+    }
+  }
+}
