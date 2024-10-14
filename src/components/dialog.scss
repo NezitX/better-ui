@@ -1,22 +1,28 @@
 .prompt {
-  border-radius: 20px !important;
+  border-radius: 1rem !important;
   font-size: 12px !important;
-  padding: 5px !important;
+  padding: .5rem !important;
+  
+  &.select > .scroll {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
 
   .button-container {
-    margin-top: 5px !important;
+    margin-top: .5rem !important;
   }
 
   .message {
-    padding: 10px !important;
+    padding: 1rem !important;
     min-height: 0px !important;
-    margin-bottom: 5px !important;
+    margin-bottom: .5rem !important;
   }
 
   .input {
     height: 2.5rem !important;
-    padding: 0 5px;
-    border-radius: 10px;
+    padding: 0 .5rem;
+    border-radius: 1rem;
     border: 1px solid rgba(0, 0, 0, 0.1);
     background-color: rgba(0, 0, 0, 0.1) !important;
 
@@ -31,24 +37,31 @@
   }
 
   textarea {
-    width: 100%;
-    box-sizing: border-box !important;
-    padding: 5px !important;
+    height: 150px !important;
+    min-height: 100px !important;
+    max-height: 400px !important;
+    resize: both !important;
+    padding: .5rem !important;
     font-size: 12px !important;
   }
-  
+
   .tile {
-    background: rgba(0,0,0,0.1) !important;
-    border-radius: 15px;
-    border: 0;
-    
-    &:hover,
-    &:active {
-      background-color: rgba(0,0,0,0.2) !important;
+    background: rgba(0, 0, 0, 0.1) !important;
+    border-radius: 1rem !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+
+    &:hover{
+      border-color: black;
+      background-color: rgba(0, 0, 0, 0.2) !important;
     }
     
-    .lead:empty+.text {
-      margin-left: 10px;
+    &:active {
+      background-color: rgb(51, 153, 255);
+      background-color: var(--active-color);
+    }
+
+    .lead:empty + .text {
+      margin-left: 1rem;
     }
   }
 }
