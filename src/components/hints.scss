@@ -1,0 +1,26 @@
+#hints {
+  display: flex;
+  flex-direction: column;
+  height: 70vh !important;
+  padding: .5rem 0;
+  gap: 0.5rem;
+
+  [data-action='hint'],
+  [action='hint'] {
+    height: 1rem !important;
+    margin: 0 0.5rem;
+    padding: 1.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.1) !important;
+
+    &:hover {
+      border-color: black;
+      background: rgba(0, 0, 0, 0.2) !important;
+    }
+
+    &:active {
+      background-color: var(--primary-text-color);
+    }
+  }
+}
