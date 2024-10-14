@@ -6,11 +6,13 @@ import checkboxStyle from './components/checkbox.scss';
 import dialogStyle from './components/dialog.scss';
 import menuStyle from './components/menu.scss';
 import pageStyle from './components/page.scss';
+import pallettesStyle from './components/pallettes.scss';
+import hintsStyle from './components/hints.scss';
 
 const appSettings = acode.require('settings');
 
 class BetterUi {
-  static UI_TYPES = ['sidebar', 'settings', 'checkbox', 'dialog', 'menu', 'page'];
+  static UI_TYPES = ['sidebar', 'settings', 'checkbox', 'dialog', 'menu', 'page', 'pallettes', 'hints'];
   constructor() {
     if (!this.settings) {
       appSettings.value[plugin.id] = {
@@ -57,6 +59,15 @@ class BetterUi {
       this.$style.textContent += pageStyle;
     };
 
+    if (this.settings.activeTypes.includes('pallettes')) {
+      this.$style.textContent += pallettesStyle;
+    };
+    
+    if (this.settings.activeTypes.includes('hints')) {
+      this.$style.textContent += hintsStyle;
+    };
+    
+
     document.head.append(this.$style);
   };
 
@@ -72,10 +83,11 @@ class BetterUi {
       key: 'customCss',
       text: 'Add Custom Css',
       value: this.settings.customCss,
+      info: 'Make your imaginations real.\nPlease edit content in sprate place and paste it here for better control.\n(NOTE: be careful this may broke the app)',
       prompt: 'Add Custom Css',
       promptType: 'textarea',
       promptOptions: {
-        placeholder: '* { color: red }; ...',
+        placeholder: '* {\n color: red \n}; \n\n...',
       }
     }, ...BetterUi.UI_TYPES.map(type => ({
       key: type,
