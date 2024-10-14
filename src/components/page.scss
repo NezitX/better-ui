@@ -1,17 +1,25 @@
 wc-page {
+  &#root {
+    & > header {
+      border: 0 !important;
+      box-shadow: 0 0 0 !important;
+    }
+  }
+
   & > header {
-    box-shadow: 0 !important;
     background: rgba(0, 0, 0, 0.1) !important;
-    padding: 10px;
+    padding: .5rem !important;
 
     .text {
-      display: flex;
-      align-items: center;
-      height: 100%;
-      width: 100%;
+      display: flex !important;
+      flex-direction: column;
+      justify-content: center !important;
+
+      height: 100% !important;
+      width: 100% !important;
 
       &.sub-text {
-        font-size: 10px !important;
+        font-size: .8rem !important;
       }
     }
   }
