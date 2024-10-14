@@ -9,13 +9,6 @@
 - **Pick what you want**: Turn on or off changes for different parts of Acode.
 - **Add your own style**: You can add your own CSS to make Acode look how you want.
 
-## How to get it
-
-1. Open Acode.
-2. Go to where you add new plugins.
-3. Look for "Better UI" and click to add it.
-4. Restart Acode to start using it.
-
 ## How to use it
 
 After you add it:
@@ -33,9 +26,9 @@ In the settings, you can:
 
 We'd love your help to make Better UI even better! If you want to help:
 
-1. Copy our code to your own account.
+1. Clone our repo from [github](https://github.com/NezitX/better-ui).
 2. Make the changes you want.
-3. Ask us to add your changes to the main version.
+3. Open a new pull request in [github](https://github.com/NezitX/better-ui).
 
 Please make sure your changes work well and fit with how the rest of the code looks.
 
