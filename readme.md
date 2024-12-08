@@ -39,7 +39,3 @@ This project uses the MIT [License](./license).
 ## Need help?
 
 If something's not working or you have questions, let us know on our [GitHub page](https://github.com/NezitX/better-ui).
-
----
-
-**Note**: This is the first version of Better UI. We'd love to hear what you think so we can make it even better!
