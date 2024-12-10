@@ -39,3 +39,43 @@ This project uses the MIT [License](./license).
 ## Need help?
 
 If something's not working or you have questions, let us know on our [GitHub page](https://github.com/NezitX/better-ui).
+
+## API `(^1.3.0)`
+
+You can use **Better UI** now which provide some useful tools for you.
+start by call it:
+```js
+const BetterUI = acode.require("@better/ui");
+```
+
+> Constants
+
+```js
+/**
+ * Returns the path to the UI folder.
+ * @type {string}
+ */
+BetterUI.UiPath
+
+/**
+ * Returns the path to the custom CSS file.
+ * @type {string}
+ */
+BetterUI.CustomCssPath
+
+/**
+ * Provides an array of available UI types in the plugin.
+ * @type {string[]}
+ */
+BetterUI.UiTypes
+```
+
+> Methods
+
+```js
+/**
+ * Reset the ui for active types and custom css file.
+ * @return {Promise<void>}
+ */
+await BetterUI.resetUi();
+```
