@@ -57,7 +57,8 @@ class BetterUi {
     if (!isCustomCssExist) {
       await fs(BetterUI.UiPath).createFile(
         "BetterUI.custom.css",
-        '/* A custom css file for "Better UI" plugin */'
+        '/* A custom css file for "Better UI" plugin */' +
+        '\n/* WARNING: Use carefully this might broke app */'
       );
     }
 
