@@ -2,7 +2,7 @@
   "id": "x.better.ui",
   "name": "Better UI",
   "main": "dist/main.js",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "readme": "readme.md",
   "icon": "icon.png",
   "files": [],

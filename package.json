@@ -1,12 +1,12 @@
 {
   "name": "better-ui",
-  "version": "1.3.0",
-  "description": "A Plugin for Acode editor",
+  "version": "1.4.0",
+  "description": "Make Acode look better with the Better UI plugin",
   "main": "dist/main.js",
   "scripts": {
     "start-dev": "node .devServer/start-dev",
     "build": "webpack && node .devServer/pack-zip.js",
-    "build-release": "webpack --mode production && node pack-zip.js"
+    "build-release": "webpack --mode production"
   },
   "repository": {
     "type": "git",
