@@ -1,34 +1,18 @@
 import plugin from "../plugin.json";
-
-import sidebarStyle from "./components/sidebar.scss";
-import settingsStyle from "./components/settings.scss";
-import checkboxStyle from "./components/checkbox.scss";
-import dialogStyle from "./components/dialog.scss";
-import menuStyle from "./components/menu.scss";
-import pageStyle from "./components/page.scss";
-import pallettesStyle from "./components/pallettes.scss";
-import hintsStyle from "./components/hints.scss";
+import Styles from './styles/index.js';
 
 const appSettings = acode.require("settings");
 const fs = acode.require("fs");
 const EditorFile = acode.require("EditorFile");
 const actionStack = acode.require("actionStack");
 
+// api
 const BetterUI = {};
 
-// constants
+//// constants
 BetterUI.UiPath = `${window.DATA_STORAGE}/ui`;
 BetterUI.CustomCssPath = `${BetterUI.UiPath}/BetterUI.custom.css`;
-BetterUI.UiTypes = [
-  "sidebar",
-  "settings",
-  "checkbox",
-  "dialog",
-  "menu",
-  "page",
-  "pallettes",
-  "hints"
-];
+BetterUI.UiTypes = Object.keys(Styles);
 
 class BetterUi {
   constructor() {
@@ -58,49 +42,24 @@ class BetterUi {
       await fs(BetterUI.UiPath).createFile(
         "BetterUI.custom.css",
         '/* A custom css file for "Better UI" plugin */' +
-        '\n/* WARNING: Use carefully this might broke app */'
+          "\n/* WARNING: Use carefully this might broke app */"
       );
     }
 
     this.$style = tag("style");
     this.$custom = tag("link", {
       rel: "stylesheet",
-      href: await acode.toInternalUrl(
-        `${window.DATA_STORAGE}/ui/BetterUI.custom.css`
-      )
+      href:
+        (await acode.toInternalUrl(
+          `${window.DATA_STORAGE}/ui/BetterUI.custom.css`
+        )) +
+        "?v=" +
+        new Date().getTime() // avoid broswer cache
     });
 
-    if (this.settings.activeTypes.includes("sidebar")) {
-      this.$style.textContent += sidebarStyle;
-    }
-
-    if (this.settings.activeTypes.includes("settings")) {
-      this.$style.textContent += settingsStyle;
-    }
-
-    if (this.settings.activeTypes.includes("checkbox")) {
-      this.$style.textContent += checkboxStyle;
-    }
-
-    if (this.settings.activeTypes.includes("dialog")) {
-      this.$style.textContent += dialogStyle;
-    }
-
-    if (this.settings.activeTypes.includes("menu")) {
-      this.$style.textContent += menuStyle;
-    }
-
-    if (this.settings.activeTypes.includes("page")) {
-      this.$style.textContent += pageStyle;
-    }
-
-    if (this.settings.activeTypes.includes("pallettes")) {
-      this.$style.textContent += pallettesStyle;
-    }
-
-    if (this.settings.activeTypes.includes("hints")) {
-      this.$style.textContent += hintsStyle;
-    }
+    const activeTypes = this.settings.activeTypes;
+    for (const type of activeTypes)
+      this.$style.textContent += Styles[type?.toLowerCase()] ?? "";
 
     document.head.append(this.$style, this.$custom);
   }
@@ -135,7 +94,7 @@ class BetterUi {
       });
 
       editorFile.on("save", async () => {
-        console.log("test");
+        console.log("[DEBUG][BETTER_UI]\nCustom css file has been saved");
         await this.resetUi();
       });
 
@@ -158,6 +117,7 @@ class BetterUi {
     this.$custom.remove();
 
     await this.init();
+    console.log("[DEBUG][BETTER_UI]\nPlugin has been reset");
   }
 }
 
