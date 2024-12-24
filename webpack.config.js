@@ -1,59 +1,52 @@
-const {exec} = require('child_process');
-const path = require('path');
+const { exec } = require("child_process");
+const path = require("path");
 
 module.exports = (env, options) => {
-  const { mode = 'development' } = options;
+  const { mode = "development" } = options;
   const rules = [
     {
       test: /\.m?js$/,
       use: [
-        'html-tag-js/jsx/tag-loader.js',
+        "html-tag-js/jsx/tag-loader.js",
         {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
-            presets: ['@babel/preset-env'],
-          },
-        },
-      ],
+            presets: ["@babel/preset-env"]
+          }
+        }
+      ]
     },
     {
       test: /\.scss$/,
-      use: [
-        'css-loader', // Converts CSS into CommonJS
-        'sass-loader', // Compiles Sass to CSS
-      ],
-    },
+      use: ["css-loader", "sass-loader"]
+    }
   ];
 
   const main = {
     mode,
     entry: {
-      main: './src/main.js',
+      main: "./src/main.js"
     },
     output: {
-      path: path.resolve(__dirname, 'dist'),
-      filename: '[name].js',
-      chunkFilename: '[name].js',
+      path: path.resolve(__dirname, "dist"),
+      filename: "[name].js",
+      chunkFilename: "[name].js"
     },
     module: {
-      rules,
+      rules
     },
     plugins: [
       {
-        apply: (compiler) => {
-          compiler.hooks.afterDone.tap('pack-zip', () => {
-            exec('node .devServer/pack-zip.js', (err, stdout, stderr) => {
-              if (err) {
-                console.error(err);
-                return;
-              }
+        apply: compiler =>
+          compiler.hooks.afterDone.tap("pack-zip", () => {
+            exec("node .devServer/pack-zip.js", (err, stdout, stderr) => {
+              if (err) return console.error(err);
               console.log(stdout);
             });
-          });
-        }
+          })
       }
-    ],
+    ]
   };
 
   return [main];
-}
+};
