@@ -1,9 +1,8 @@
 .main .list,
 .main.list {
-  padding: 1rem 0 !important;
+  margin-top: var(--navbar-height) !important;
 
   .list-item {
-    align-items: center !important;
     padding: 0 .5rem !important;
     gap: 1rem !important;
 
