@@ -9,13 +9,13 @@
       height: 100% !important;
       width: 100% !important;
       border-radius: 4px !important;
+      border-color: var(--border-color) !important;
     }
   }
 
   input:checked {
     & + .box::after {
-      background-color: #3399ff;
-      background-color: var(--button-background-color);
+      background-color: var(--active-color);
     }
   }
 
